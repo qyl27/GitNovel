@@ -3,15 +3,12 @@ import {createStore} from "vuex";
 const store = createStore({
     state() {
         return {
-            count: 0
+            appName: "GitNovel"
         }
     },
     mutations: {
-        increase(state : any) {
-            state.count += 1;
-        },
-        decrease(state : any) {
-            state.count -= 1;
+        setName(state : any, name: string) {
+            state.appName = name;
         }
     }
 })

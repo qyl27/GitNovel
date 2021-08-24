@@ -9,17 +9,22 @@
     name: "App",
     data: () => ({
     }),
-    beforeCreate() {
-      console.log(this);
-
-      // Fixme
-      this.Target.methods.fetchData()
+    mounted() {
+      this.fetchData();
     },
     methods: {
       fetchData() {
-        let url = window.location.origin + this.$route.path + "/novel.json";
-        console.log(url);
-        axios.get(url);
+        let url = window.location.origin + (this as any).$route.path + "/novel.json";
+        axios
+            .get(url)
+            .then(response => {
+              let data = response.data;
+              (this as any).$store.commit("setName", data.name);
+            })
+            .catch(error => {
+              console.log(error);
+              // Todo
+            });
       }
     }
   }
