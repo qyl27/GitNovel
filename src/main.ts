@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import router from "./routers";
-import store from "./vuex-store";
+import store from "./vuex/vuex-store";
 // @ts-ignore
 import vuetify from './plugins/vuetify';
 import App from './App.vue';
